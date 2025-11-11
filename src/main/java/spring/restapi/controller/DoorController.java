@@ -215,4 +215,17 @@ public class DoorController {
 
         return ResponseEntity.ok(response);
     }
+
+    /***
+     * Check Feedback message
+     *
+     * @param requestDto cid, msg
+     * @return base responseDto
+     */
+    @PostMapping("/message_check")
+    public ResponseEntity<BaseResponseDto> messageCheck(@Valid @RequestBody MessageSendRequestDto requestDto) {
+        BaseResponseDto response = this.doorService.messageSend(requestDto.getCid(), requestDto.getMsg());
+
+        return ResponseEntity.ok(response);
+    }
 }
